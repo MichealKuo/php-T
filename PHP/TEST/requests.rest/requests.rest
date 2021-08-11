@@ -1,0 +1,13 @@
+
+GET http://localhost/mfee19-php/PHP/TEST/a20210802-08-query-string.php
+
+### 分隔
+
+GET http://localhost/mfee19-php/PHP/TEST/a20210802-14-for.php
+
+### 分隔
+
+POST http://localhost/mfee19-php/PHP/TEST/a20210804-02-post-data.php
+Content-Type: application/x-www-form-urlencoded
+
+a=100&b=70
