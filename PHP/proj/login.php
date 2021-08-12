@@ -6,6 +6,8 @@
         header('Location: index_.php');    //redirect 直接跳轉到別的頁面
         exit;
     }
+
+
 ?>
 <?php include __DIR__. '/partials/html-head.php'; ?>
 <?php include __DIR__. '/partials/navbar.php'; ?>

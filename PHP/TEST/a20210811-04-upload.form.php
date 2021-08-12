@@ -8,9 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-
+                                                                <!-- enctype="multipart/form-data 才能上傳 -->
 <form action="a20210811-05-file.php" name="form1" method="post" enctype="multipart/form-data">
-    <input type="file" name="avatar" accept="image/*">
+    <input type="file" name="avatar" accept="image/*"> 
+    <!-- image/* *代表所以格式都可以 -->
     <br>
     <input type="text" name="name" placeholder="姓名">
     <br>

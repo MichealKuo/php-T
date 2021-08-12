@@ -1,3 +1,4 @@
+
 <?php
 include __DIR__. '/partials/init.php';
 
@@ -6,7 +7,7 @@ header('Content-Type: application/json');
 // 要存放圖檔的資料夾
 $folder = __DIR__. '/imgs/';
 
-// 允許的檔案類型
+//允許的檔案類型
 $imgTypes = [
     'image/jpeg' => '.jpg',
     'image/png' => '.png',
@@ -31,16 +32,19 @@ $isSaved = false;
 
 // 如果有上傳檔案
 if(! empty($_FILES) and !empty($_FILES['avatar'])){
-
+                                //$_FILES['avatar']['type']現在上傳的檔案是什麼把他對應到imgtype
+    //ext 是延伸的檔名
     $ext = isset($imgTypes[$_FILES['avatar']['type']]) ? $imgTypes[$_FILES['avatar']['type']] : null ; // 取得副檔名
 
     // 如果是允許的檔案類型
     if(! empty($ext)){
         $filename = sha1( $_FILES['avatar']['name']. rand()). $ext;
-
+                    //sha1( $_FILES['avatar']['name']. rand())主檔名  $ext 副檔名
         if(move_uploaded_file(
             $_FILES['avatar']['tmp_name'],
             $folder. $filename
+
+            //可以上傳檔案  檔案類型符合條件  把檔案搬到
         )){
             $sql = "UPDATE `members` SET `avatar`=?, `nickname`=? WHERE id=?";
             $stmt = $pdo->prepare($sql);
@@ -63,7 +67,7 @@ if(! empty($_FILES) and !empty($_FILES['avatar'])){
                 echo json_encode($output);
                 exit;
             }
-
+                
         }
     }
 

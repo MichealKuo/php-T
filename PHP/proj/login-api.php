@@ -7,6 +7,7 @@ $output = [
     'error' => '',
     'code' => 0,
 ];
+$output['postData'] = $_POST;
 
 
 // 判斷有沒有帳號和密碼
@@ -16,7 +17,7 @@ if(!isset($_POST['account']) or !isset($_POST['password'])){
     echo json_encode($output, JSON_UNESCAPED_UNICODE);
     exit; // 直接離開 (中斷) 程式
 }
-
+//會員資料
 $sql = "SELECT * FROM members WHERE email=?";
 $stmt = $pdo->prepare($sql);
 $stmt->execute([$_POST['account']]);
